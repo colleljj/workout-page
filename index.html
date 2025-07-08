@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Injury-Conscious Fitness Blueprint</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkZpdG5lc3MgQmx1ZXByaW50IiwKICAic2hvcnRfbmFtZSI6ICJGaXRCbHVlcHJpbnQiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJodHRwczovL3BsYWNlaG9sZC5jby8xOTJ4MTkyLzNCODJGNi9GRkZGRkY/dGV4dD1GaXQiLAogICAgICAic2l6ZXMiOiAiMTkyeDE5MiIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIKICAgIH0sCiAgICB7CiAgICAgICJzcmMiOiAiaHR0cHM6Ly9wbGFjZWhvbGQuY28vNTEyeDUxMi8zQjgyRjYvRkZGRkZGP3RleHQ9Rml0bmVzcyIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIgogICAgfQogIF0sCiAgInN0YXJ0X3VybCI6ICIuIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAidGhlbWVfY29sb3IiOiAiIzNCODJGNiIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiI0YzRjRGNyIKfQo=">
+    
+    <!-- Theme color for browser UI -->
+    <meta name="theme-color" content="#3B82F6">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F3F4F6; /* Light Gray Background */
+            color: #1F2937; /* Dark Gray Text */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 300px;
+        }
+        .shadow-blue { box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.2), 0 4px 6px -2px rgba(59, 130, 246, 0.1); }
+        h1, h2, h3 {
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="container mx-auto p-4 md:p-8 max-w-6xl">
+        
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-bold text-blue-600 mb-4">Train Smart, Not Hard</h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Your visual blueprint for building strength and stability while safely managing shoulder impingement and knee instability.</p>
+        </header>
+
+        <section id="principles" class="mb-16">
+            <h2 class="text-3xl text-center mb-8">Your Core Principles for Safe Training</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white p-6 rounded-lg shadow-blue">
+                    <div class="text-4xl mb-4">⏱️</div>
+                    <h3 class="text-xl font-semibold mb-2">Warm-up & Cool-down</h3>
+                    <p class="text-gray-600">Every session starts with a 5-10 minute warm-up to prepare your body and ends with a cool-down to aid recovery and flexibility.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-blue">
+                    <div class="text-4xl mb-4">🤸</div>
+                    <h3 class="text-xl font-semibold mb-2">Form Over Weight</h3>
+                    <p class="text-gray-600">Perfect movement quality is your priority. Controlled reps with proper form are more effective and safer than lifting heavy with poor technique.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-blue">
+                    <div class="text-4xl mb-4">🚦</div>
+                    <h3 class="text-xl font-semibold mb-2">Pain is Your Guide</h3>
+                    <p class="text-gray-600">Listen to your body. Sharp or increasing pain is a signal to stop. Modify the exercise or choose an alternative. Never push through pain.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="dos-and-donts" class="mb-16">
+            <h2 class="text-3xl text-center mb-8">Injury Guide: The Do's & Don'ts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Shoulder Impingement</h3>
+                    <div class="space-y-4">
+                        <div class="bg-green-100 p-4 rounded-lg">
+                            <h4 class="font-bold text-green-800">✅ DO: Focus on these</h4>
+                            <ul class="list-disc list-inside text-gray-700 mt-2">
+                                <li>Dumbbell/TRX Rows</li>
+                                <li>Flat Bench Chest Press</li>
+                                <li>Band Pull-Aparts</li>
+                                <li>External/Internal Rotations (elbow tucked)</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-100 p-4 rounded-lg">
+                            <h4 class="font-bold text-red-800">❌ AVOID: These movements</h4>
+                            <ul class="list-disc list-inside text-gray-700 mt-2">
+                                <li>Overhead Presses</li>
+                                <li>Lat Pulldowns (behind head)</li>
+                                <li>High-impact throwing</li>
+                                <li>Lifting with elbows flared</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-center">Knee Instability</h3>
+                     <div class="space-y-4">
+                        <div class="bg-green-100 p-4 rounded-lg">
+                            <h4 class="font-bold text-green-800">✅ DO: Focus on these</h4>
+                            <ul class="list-disc list-inside text-gray-700 mt-2">
+                                <li>Reverse Lunges</li>
+                                <li>Wall Sits & Mini Squats</li>
+                                <li>Glute Bridges & Hamstring Curls</li>
+                                <li>Controlled Step-ups/Step-downs</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-100 p-4 rounded-lg">
+                            <h4 class="font-bold text-red-800">❌ AVOID: These movements</h4>
+                            <ul class="list-disc list-inside text-gray-700 mt-2">
+                                <li>Deep Squats & Forward Lunges</li>
+                                <li>High-impact jumping (HIIT)</li>
+                                <li>Heavy Leg Extensions</li>
+                                <li>Pivoting sports (Basketball, Soccer)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="weekly-plan" class="mb-16">
+            <h2 class="text-3xl text-center mb-8">Your Weekly Workout Blueprint</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <div class="text-center p-6 bg-blue-600 text-white rounded-lg shadow-blue w-full md:w-1/4">
+                    <h3 class="text-xl font-bold">Session 1</h3>
+                    <p>🏠 At Home (20-40 min)</p>
+                    <p class="font-semibold">Upper Body & Core</p>
+                </div>
+                <div class="text-2xl text-blue-600 font-bold hidden md:block">&rarr;</div>
+                 <div class="text-2xl text-blue-600 font-bold md:hidden">&darr;</div>
+                <div class="text-center p-6 bg-orange-500 text-white rounded-lg shadow-lg w-full md:w-1/4">
+                    <h3 class="text-xl font-bold">Session 2</h3>
+                    <p>🏠 At Home (20-40 min)</p>
+                     <p class="font-semibold">Lower Body & Core</p>
+                </div>
+                <div class="text-2xl text-blue-600 font-bold hidden md:block">&rarr;</div>
+                 <div class="text-2xl text-blue-600 font-bold md:hidden">&darr;</div>
+                <div class="text-center p-6 bg-blue-600 text-white rounded-lg shadow-blue w-full md:w-1/4">
+                    <h3 class="text-xl font-bold">Session 3</h3>
+                    <p>🏋️ At The Gym (~60 min)</p>
+                     <p class="font-semibold">Full Body Integration</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="home-workout-a" class="mb-16">
+             <h2 class="text-3xl text-center mb-2">Home Workout A: Upper Body & Core</h2>
+             <p class="text-center text-gray-600 mb-8">Focus on building shoulder stability and core strength with controlled movements.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-4">The Exercises (3 Sets Each)</h3>
+                    <div class="grid grid-cols-1 gap-4 text-sm">
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>1. Scapula Squeeze:</strong> 10 reps (5s hold)
+                            <p class="text-xs text-gray-500 mt-1">Gently squeeze shoulder blades together and hold, focusing on upper back activation.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>2. Doorway Shoulder Stretch:</strong> 15-20s hold
+                            <p class="text-xs text-gray-500 mt-1">Place forearms on a doorframe and gently lean forward to stretch your chest and shoulders.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>3. Crossover Arm Stretch:</strong> 5 reps (5-10s hold)
+                            <p class="text-xs text-gray-500 mt-1">Pull one arm across your body below shoulder height with the other hand for a gentle stretch.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>4. Standing External Rotation:</strong> 10-15 reps (light weight)
+                            <p class="text-xs text-gray-500 mt-1">With elbow tucked, rotate your forearm outwards using a light dumbbell or band.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>5. Dumbbell Rows:</strong> 10-12 reps
+                            <p class="text-xs text-gray-500 mt-1">Hinge at hips, row dumbbells towards your chest, squeezing shoulder blades.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>6. TRX Rows:</strong> 10-12 reps
+                            <p class="text-xs text-gray-500 mt-1">Lean back holding TRX, pull chest towards hands, squeezing shoulder blades.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>7. Plank:</strong> 30-60s hold
+                            <p class="text-xs text-gray-500 mt-1">Hold a straight line from head to heels on forearms, engaging your core.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>8. Dead Bug (with Yoga Block):</strong> 8-10 reps per side
+                            <p class="text-xs text-gray-500 mt-1">Lie on back, squeeze block between opposite elbow/knee, extend other limbs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center">
+                     <h3 class="text-2xl font-semibold mb-4 text-center">Workout Focus</h3>
+                    <div class="chart-container">
+                        <canvas id="upperBodyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="home-workout-b" class="mb-16">
+             <h2 class="text-3xl text-center mb-2">Home Workout B: Lower Body & Core</h2>
+             <p class="text-center text-gray-600 mb-8">Strengthen the muscles supporting your knees with a strong emphasis on VMO activation.</p>
+             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                 <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-4">The Exercises (3 Sets Each)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>1. VMO Activation: Quad Sets:</strong> 10-15 reps (5-10s hold)
+                            <p class="text-xs text-gray-500 mt-1">Tighten thigh muscles, pressing knee down, focusing on the inner thigh muscle.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>2. VMO Activation: Short Arc Quads:</strong> 8-12 reps (6s hold)
+                            <p class="text-xs text-gray-500 mt-1">With a towel under your knee, straighten leg, lifting foot, focusing on VMO.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>3. Straight Leg Raises:</strong> 8-12 reps (6s hold)
+                            <p class="text-xs text-gray-500 mt-1">Lie on back, lift one straight leg about 30cm, keeping lower back on floor.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>4. Glute Bridges:</strong> 10-15 reps
+                            <p class="text-xs text-gray-500 mt-1">Lie on back, knees bent, lift hips by squeezing glutes.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>5. Wall Squats (with VMO focus):</strong> 20-60s hold
+                            <p class="text-xs text-gray-500 mt-1">Slide down a wall to 90-degree knee bend, squeezing a block between knees.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>6. Reverse Lunges:</strong> 8-10 reps per leg
+                            <p class="text-xs text-gray-500 mt-1">Step one leg backward, lowering hips until both knees are bent at 90 degrees.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>7. Step-ups:</strong> 8-12 reps per leg
+                            <p class="text-xs text-gray-500 mt-1">Step onto a footstool, driving through the heel, then slowly step down.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>8. Step-downs:</strong> 8-12 reps per leg
+                            <p class="text-xs text-gray-500 mt-1">Stand on a footstool, slowly lower one foot to touch the floor, controlling the movement.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center">
+                     <h3 class="text-2xl font-semibold mb-4 text-center">Workout Focus</h3>
+                    <div class="chart-container">
+                        <canvas id="lowerBodyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gym-workout" class="mb-16">
+             <h2 class="text-3xl text-center mb-2">Gym Session: Full Body Integration</h2>
+             <p class="text-center text-gray-600 mb-8">Use gym machines for controlled, stable movements to build overall strength.</p>
+             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                 <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-4">The Exercises (3 Sets Each)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>1. Leg Press (Machine):</strong> 10-12 reps
+                            <p class="text-xs text-gray-500 mt-1">Press platform away, control descent, avoid locking knees. Use Life Time's stable machines.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>2. Hamstring Curls (Machine):</strong> 10-12 reps
+                            <p class="text-xs text-gray-500 mt-1">Curl weight with hamstrings, control lowering. Adjust machine for proper fit.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>3. Lateral Band Walks:</strong> 10-15 steps per direction
+                            <p class="text-xs text-gray-500 mt-1">Step sideways with band around ankles/knees, maintaining tension and slight knee bend.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>4. Seated Cable Rows (Machine/Functional Trainer):</strong> 10-12 reps
+                            <p class="text-xs text-gray-500 mt-1">Pull handle to lower abdomen, squeezing shoulder blades. Keep elbows close.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>5. Chest Press (Machine):</strong> 10-12 reps
+                            <p class="text-xs text-gray-500 mt-1">Press weight forward from chest, control return. Use gym's seated press for stability.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>6. Lat Pulldown (Machine - neutral grip preferred):</strong> 10-12 reps
+                            <p class="text-xs text-gray-500 mt-1">Pull bar to upper chest, squeezing shoulder blades. Use neutral grip to ease shoulder.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>7. Cable External/Internal Rotation:</strong> 10-15 reps
+                            <p class="text-xs text-gray-500 mt-1">With elbow tucked, rotate forearm outward/inward using cable machine for rotator cuff.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>8. Glute Kickback (Machine/Cable):</strong> 10-15 reps per leg
+                            <p class="text-xs text-gray-500 mt-1">Kick one leg straight back, squeezing glute. Use gym's glute kickback machine or cable.</p>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-md">
+                            <strong>9. Plank Variations (Gym Mat):</strong> 30-60s hold
+                            <p class="text-xs text-gray-500 mt-1">Hold a straight line on forearms or side, engaging core for stability.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center">
+                     <h3 class="text-2xl font-semibold mb-4 text-center">Workout Focus</h3>
+                    <div class="chart-container">
+                        <canvas id="fullBodyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="ai-modifications" class="mb-16 p-6 bg-blue-600 text-white rounded-lg shadow-blue">
+            <h2 class="text-3xl text-center mb-6">✨ AI Exercise Modification Assistant ✨</h2>
+            <p class="text-center text-blue-600 bg-white p-4 rounded-md mb-6">Unsure about an exercise? Get smart suggestions for safe alternatives or modifications based on your shoulder and knee needs!</p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-6">
+                <input type="text" id="exerciseInput" placeholder="e.g., Overhead Press, Squat" class="p-3 rounded-md w-full md:w-2/3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                <button id="getSuggestionBtn" class="bg-orange-500 text-white font-bold py-3 px-6 rounded-md shadow-md hover:bg-orange-600 transition duration-300 w-full md:w-1/3">Get Suggestions</button>
+            </div>
+            <div id="suggestionOutput" class="bg-white text-gray-800 p-4 rounded-md min-h-[100px] flex items-center justify-center text-center">
+                Enter an exercise above to get personalized recommendations!
+            </div>
+            <div id="loadingIndicator" class="hidden text-center mt-4">
+                <div class="flex items-center justify-center">
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Generating suggestions...
+                </div>
+            </div>
+        </section>
+
+        <section id="progression" class="mb-12">
+            <h2 class="text-3xl text-center mb-8">How to Progress Safely</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">As you get stronger, gradually increase the challenge. Move to the next step only when you can complete all sets and reps with perfect, pain-free form.</p>
+            <div class="relative">
+                <div class="absolute left-1/2 h-full w-1 bg-blue-600/20 hidden md:block" aria-hidden="true"></div>
+                <div class="space-y-8 md:space-y-12">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-8 text-center md:text-right">
+                            <div class="p-6 bg-white rounded-lg shadow-lg inline-block">
+                                <h3 class="text-xl font-bold text-blue-600">Step 1: Increase Reps</h3>
+                                <p class="mt-2 text-gray-600">Add 1-2 repetitions to each set.</p>
+                            </div>
+                        </div>
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-blue my-4 md:my-0 z-10">1</div>
+                        <div class="md:w-1/2 md:pl-8"></div>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-8 md:order-last text-center md:text-left">
+                            <div class="p-6 bg-white rounded-lg shadow-lg inline-block">
+                                <h3 class="text-xl font-bold text-blue-600">Step 2: Increase Sets</h3>
+                                <p class="mt-2 text-gray-600">Add one more set to an exercise.</p>
+                            </div>
+                        </div>
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-blue my-4 md:my-0 md:order-2 z-10">2</div>
+                        <div class="md:w-1/2 md:pl-8 md:order-first"></div>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-8 text-center md:text-right">
+                             <div class="p-6 bg-white rounded-lg shadow-lg inline-block">
+                                <h3 class="text-xl font-bold text-blue-600">Step 3: Increase Resistance</h3>
+                                <p class="mt-2 text-gray-600">Use a slightly heavier dumbbell or cable setting.</p>
+                            </div>
+                        </div>
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-blue my-4 md:my-0 z-10">3</div>
+                        <div class="md:w-1/2 md:pl-8"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center mt-16 border-t border-blue-600/30 pt-8">
+            <p class="text-gray-600">This plan is a guide. Always consult with a physician or physical therapist before starting a new exercise program. Consistency and patience are your keys to success!</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').then(registration => {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, err => {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+
+        const chartTooltipCallback = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join(' ');
+                            }
+                            return label;
+                        }
+                    }
+                },
+                legend: {
+                    position: 'bottom',
+                }
+            },
+            maintainAspectRatio: false,
+        };
+
+        const wrapLabel = (label) => {
+            if (label.length > 16) {
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + ' ' + word).length > 16) {
+                        lines.push(currentLine);
+                        currentLine = word;
+                    } else {
+                        currentLine = currentLine ? currentLine + ' ' + word : word;
+                    }
+                });
+                lines.push(currentLine);
+                return lines;
+            }
+            return label;
+        };
+        
+        const newColors = ['#3B82F6', '#F97316', '#10B981']; // Blue, Orange, Green
+        const newBorderColor = '#F3F4F6'; // Background Gray
+
+        const upperBodyCtx = document.getElementById('upperBodyChart').getContext('2d');
+        new Chart(upperBodyCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Upper Body Strength', 'Shoulder Stability', 'Core'].map(wrapLabel),
+                datasets: [{
+                    data: [40, 30, 30],
+                    backgroundColor: newColors,
+                    borderColor: newBorderColor,
+                    borderWidth: 4
+                }]
+            },
+            options: chartTooltipCallback
+        });
+        
+        const lowerBodyCtx = document.getElementById('lowerBodyChart').getContext('2d');
+        new Chart(lowerBodyCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Knee Stability (VMO)', 'Glutes & Hamstrings', 'Core'].map(wrapLabel),
+                datasets: [{
+                    data: [45, 35, 20],
+                    backgroundColor: newColors,
+                    borderColor: newBorderColor,
+                    borderWidth: 4
+                }]
+            },
+            options: chartTooltipCallback
+        });
+
+        const fullBodyCtx = document.getElementById('fullBodyChart').getContext('2d');
+        new Chart(fullBodyCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Lower Body', 'Upper Body', 'Stability & Core'].map(wrapLabel),
+                datasets: [{
+                    data: [40, 40, 20],
+                    backgroundColor: newColors,
+                    borderColor: newBorderColor,
+                    borderWidth: 4
+                }]
+            },
+            options: chartTooltipCallback
+        });
+
+        // The AI assistant part requires a backend, so this is a placeholder for the front-end interaction.
+        // For a real implementation, this would make an API call.
+        const getSuggestionBtn = document.getElementById('getSuggestionBtn');
+        const exerciseInput = document.getElementById('exerciseInput');
+        const suggestionOutput = document.getElementById('suggestionOutput');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+
+        getSuggestionBtn.addEventListener('click', () => {
+            const exercise = exerciseInput.value.toLowerCase().trim();
+            suggestionOutput.innerHTML = '';
+            loadingIndicator.classList.remove('hidden');
+
+            // Simulate API call
+            setTimeout(() => {
+                let suggestion = '';
+                if (exercise.includes('overhead press') || exercise.includes('military press')) {
+                    suggestion = `<strong>Alternative for Overhead Press:</strong><br>Try a <strong>Seated Dumbbell Press</strong> with a neutral grip and don't go below 90 degrees at the elbow. This reduces shoulder impingement risk. Or, focus on <strong>Incline Bench Press</strong> to target shoulders more safely.`;
+                } else if (exercise.includes('squat')) {
+                    suggestion = `<strong>Modification for Squats:</strong><br>Focus on <strong>Box Squats</strong> to a height that is pain-free. This controls depth and ensures you're not going too low. Also, ensure your form emphasizes sitting back, not letting knees travel too far forward. <strong>Wall Sits</strong> are a great isometric alternative.`;
+                } else if (exercise.includes('lunge')) {
+                    suggestion = `<strong>Alternative for Forward Lunges:</strong><br><strong>Reverse Lunges</strong> are much better for knee stability as they put less shear force on the knee. You can also try <strong>Static Lunges</strong> (split squats) where your feet don't move.`;
+                } else if (exercise) {
+                    suggestion = `No specific suggestion for "${exerciseInput.value}". Remember the core principles: prioritize form, listen to your body, and avoid any movement that causes sharp pain in your shoulder or knee.`;
+                } else {
+                    suggestion = 'Please enter an exercise to get a suggestion.';
+                }
+                
+                suggestionOutput.innerHTML = suggestion;
+                loadingIndicator.classList.add('hidden');
+            }, 1000);
+        });
+
+    </script>
+</body>
+</html>
